@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FarmEase"
         tools:targetApi="31">
         <activity
+            android:name=".startupScreen.StartUpScreen"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
