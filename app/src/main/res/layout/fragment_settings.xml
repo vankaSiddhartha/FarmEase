@@ -54,15 +54,17 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/profile"
+                            android:src="@drawable/google"
                             app:tint="@color/orange"/>
 
                         <TextView
+                            android:id="@+id/google"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:textColor="@color/black"
                             android:layout_marginStart="16dp"
-                            android:text="Profile Settings"
+                            android:text="Google Pay Link"
                             android:textSize="16sp"/>
 
                         <ImageView
@@ -89,15 +91,18 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/baseline_add_location_24"
+                            android:src="@drawable/phonepay"
                             app:tint="@color/orange"/>
 
                         <TextView
+                            android:id="@+id/phonepay"
+                            android:textColor="@color/black"
+
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="16dp"
-                            android:text="Shipping Addresses"
+                            android:text="Phone Pay Link"
                             android:textSize="16sp"/>
 
                         <ImageView
@@ -148,6 +153,8 @@
                             app:tint="@color/orange"/>
 
                         <TextView
+                            android:id="@+id/noti"
+                            android:textColor="@color/black"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -183,6 +190,7 @@
                             app:tint="@color/orange"/>
 
                         <TextView
+                            android:textColor="@color/black"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -240,6 +248,8 @@
                             app:tint="@color/orange"/>
 
                         <TextView
+                            android:id="@+id/cp"
+                            android:textColor="@color/black"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -275,11 +285,13 @@
                             app:tint="@color/orange"/>
 
                         <TextView
+                            android:id="@+id/prv"
+                            android:textColor="@color/black"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="16dp"
-                            android:text="Privacy Settings"
+                            android:text="Privacy Rules"
                             android:textSize="16sp"/>
 
                         <ImageView
@@ -330,6 +342,7 @@
                             app:tint="@color/orange"/>
 
                         <TextView
+                            android:textColor="@color/black"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -367,6 +380,8 @@
                             app:tint="@color/orange" />
 
                         <TextView
+                            android:id="@+id/tnc"
+                            android:textColor="@color/black"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

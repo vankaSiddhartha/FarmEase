@@ -36,121 +36,60 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.0">
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/categoryChipGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:chipSpacingHorizontal="8dp"
-            app:singleSelection="true">
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/categoryChipGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Suggestions" />
+                android:layout_margin="16dp"
+                app:singleSelection="true">
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kurti" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/suggestions"
+                    style="@style/CategoryChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Suggestions" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ajio Kurti" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFresh"
+                    style="@style/CategoryChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fresh" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Saree" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipOrganic"
+                    style="@style/CategoryChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Organic" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ethnic" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipVizagFarmers"
+                    style="@style/CategoryChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vizag Farmers" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jeans" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipArukuHillsVeggies"
+                    style="@style/CategoryChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aruku Hills Veggies" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Leggings" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipNoPest"
+                    style="@style/CategoryChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No pest" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fusion Wear" />
+            </com.google.android.material.chip.ChipGroup>
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Party Wear" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Shorts and Skirts" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Evening Tops" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Casual Sets" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Crood Sets" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Casual Dress" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Indo Western" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Western Wear" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ajio Western Wear" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/CategoryChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gym Wear" />
-        </com.google.android.material.chip.ChipGroup>
 
     </HorizontalScrollView>
 
@@ -160,7 +99,7 @@
         android:layout_height="wrap_content"
         android:text="Host Sale"
         android:textColor="@color/black"
-        android:textSize="21sp"
+        android:textSize="16sp"
         android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -190,7 +129,7 @@
         android:text="Fresh section"
         android:layout_marginStart="10dp"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalRecyclerView" />
 
@@ -206,6 +145,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         tools:listitem="@layout/fresh_card" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_btn"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoryScrollView">
+
+            <ImageView
+                android:id="@+id/pwimg"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/load"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

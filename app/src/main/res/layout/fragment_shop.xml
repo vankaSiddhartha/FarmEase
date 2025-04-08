@@ -8,6 +8,26 @@
     android:layout_height="match_parent"
     tools:context=".shop.Shop">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shop_rv">
+
+        <ImageView
+            android:id="@+id/pwimg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/load"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <EditText
         android:id="@+id/roundedEditText"
         android:layout_width="0dp"
@@ -52,6 +72,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/shop_rv"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"

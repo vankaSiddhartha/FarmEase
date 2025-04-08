@@ -5,56 +5,85 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.farmease.R
+import com.app.farmease.databinding.FragmentCartBinding
+import com.app.farmease.logic.adapter.CartAdapter
+import com.app.farmease.logic.db.CartDatabaseHelper
+import com.app.farmease.logic.model.Cart
+import com.google.firebase.auth.FirebaseAuth
+import com.razorpay.Checkout
+import com.razorpay.PaymentResultListener
+import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [cart.newInstance] factory method to
- * create an instance of this fragment.
- */
-class cart : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+class cart : Fragment(),PaymentResultListener {
+    private lateinit var binding:FragmentCartBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentCartBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false)
+        binding.cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val db = CartDatabaseHelper(requireContext())
+        val adapter =  CartAdapter(requireContext(), db )
+        binding.cartRecyclerView.adapter = adapter
+        adapter.updateItems(db.getAllProducts())
+        if (db.getAllProducts().isEmpty()) {
+            binding.bottomPanel.visibility = View.GONE
+        } else {
+
+            binding.emptyText.visibility = View.GONE
+
+            binding.bottomPanel.visibility = View.VISIBLE
+
+        }
+        binding.checkoutButton.setOnClickListener {
+            var total = 0
+            for (i in db.getAllProducts()) {
+                val price = i.price?.toIntOrNull() ?: 0 // Safely convert price to an integer
+                total += (i.count * price) // Perform the multiplication and add to total
+            }
+            total *= 100
+            startPayment(total.toString(),FirebaseAuth.getInstance().currentUser?.email.toString())
+        }
+        return binding.root
+    }
+    private fun startPayment(price:String,email:String) {
+        val checkout = Checkout()
+
+        // Set your Razorpay API Key
+        checkout.setKeyID("YOUR_API_KEY")
+
+        try {
+            val options = JSONObject()
+            options.put("name", "FarmEase") // Name of your app or business
+            options.put("description", "Payment for Order") // Payment description
+// Optional
+            options.put("currency", "INR") // Currency code
+            options.put("amount", price) // Amount in paise (50000 = ₹500)
+
+            val prefill = JSONObject()
+            prefill.put("email", "test@example.com") // User's email
+            prefill.put("contact", "9876543210") // User's phone number
+
+            options.put("prefill", prefill)
+
+            checkout.open(requireActivity(), options)
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment cart.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            cart().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onPaymentSuccess(p0: String?) {
+
     }
+
+    override fun onPaymentError(p0: Int, p1: String?) {
+
+    }
+
 }
